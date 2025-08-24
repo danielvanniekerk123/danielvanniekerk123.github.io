@@ -1,9 +1,10 @@
 import Navigation from './components/Navigation';
 import { useState, useEffect } from 'react';
 import './index.css';
-import { FaReact, FaNodeJs, FaPython, FaHtml5, FaAws } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaPython, FaHtml5, FaAws, FaDownload, FaExternalLinkAlt } from 'react-icons/fa';
 import { SiTailwindcss, SiTypescript, SiJavascript, SiExpress, SiSqlite, SiPostgresql, SiFirebase, SiVercel } from 'react-icons/si';
 import CollageViewer from './components/CollageViewer';
+import Chatbot from './components/Chatbot';
 import q2m002 from './assets/img/q2m002.png';
 import q2m003 from './assets/img/q2m003.png';
 import s001 from './assets/img/s001.png';
@@ -23,27 +24,29 @@ import t007 from './assets/img/t007.png';
 
 const projects = [
   {
-    title: 'quick2mb Website',
+    title: 'Quick2MB Website',
     image: [q2m002, q2m003],
-    description: 'A simple and easy compression website.',
-    tech: ['React', 'Tailwind CSS', 'VUE', 'firebase'],
+    description: 'A modern file compression web application that allows users to compress files up to 2MB quickly and efficiently. Features a clean, responsive interface with real-time compression feedback.',
+    tech: ['React', 'Tailwind CSS', 'Vue.js', 'Firebase'],
     link: 'https://github.com/danielvanniekerk123/2mbquick',
     weblink: 'https://quick2mb.site',
+    features: ['File compression', 'Real-time feedback', 'Responsive design', 'User-friendly interface']
   },
   {
     title: 'Skoonify Website',
     image: [s001, s002, s003, s004, s005, s006, s007],
-    description: 'A full-stack website for a company that provides cleaning services.',
+    description: 'A comprehensive full-stack web application for a professional cleaning services company. Includes customer booking system, service management, and administrative dashboard.',
     tech: ['React', 'Node.js', 'Tailwind CSS', 'Firebase'],
     link: 'https://github.com/danielvanniekerk123/skoonify-app',
-    // Add demo link if available
+    features: ['Booking system', 'Service management', 'Admin dashboard', 'Payment integration']
   },
   {
-    title: 'Telegram trading Bot',
+    title: 'Telegram Trading Bot',
     image: [t001, t002, t003, t004, t005, t006, t007],
-    description: 'A telegram bot that helps you calculate your PnL in crypto trading.',
-    tech: ['Python', 'Telegram'],
+    description: 'An intelligent Telegram bot designed to help cryptocurrency traders calculate their Profit and Loss (PnL) in real-time. Features automated calculations and user-friendly commands.',
+    tech: ['Python', 'Telegram Bot API'],
     link: 'https://github.com/danielvanniekerk123/telegram_trading-bot',
+    features: ['Real-time PnL calculation', 'Automated responses', 'User-friendly commands', 'Crypto integration']
   },
 ];
 
@@ -78,25 +81,46 @@ function App() {
       
       {/* Hero Section */}
       <section id="home" className={`transition-colors duration-500 ${scrolled ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'} flex flex-col items-center justify-center min-h-screen`}>
-        <h1 className="text-3xl sm:text-5xl font-bold mb-4">
-          Hi, I'm {' '}
-          <button
-            className="relative cursor-pointer focus:outline-none"
-            onClick={handleNameClick}
-            aria-label="Reveal name"
-          >
-            <div className="text-sm">↓ click to reveal ↓</div>
-            <span className={`inline-block text-blue-600 transition-opacity duration-300 ${showName ? 'opacity-100' : 'opacity-0'} ${animate ? 'animate-wiggle' : ''}`}>
-              DANIEL
-            </span><span className="text-black">.</span>
-          </button>
-        </h1>
-        <p className="text-lg sm:text-xl mb-6 max-w-xl text-center">
-          I build modern, full-stack web applications and solutions.<br />
-          <span className="text-blue-600">React</span> • <span className="text-yellow-500">Node.js</span> • <span className="text-green-600">Python</span> • <span className="text-purple-600">Tailwind CSS</span>
-        </p>
-        <span className="mt-4 text-sm text-gray-300">scroll down 👇</span>
-        
+        <div className="text-center max-w-4xl mx-auto">
+          <h1 className="text-4xl sm:text-6xl font-bold mb-6">
+            Hi, I'm {' '}
+            <button
+              className="relative cursor-pointer focus:outline-none"
+              onClick={handleNameClick}
+              aria-label="Reveal name"
+            >
+              <div className="text-sm mb-2">↓ click to reveal ↓</div>
+              <span className={`inline-block text-blue-600 transition-opacity duration-300 ${showName ? 'opacity-100' : 'opacity-0'} ${animate ? 'animate-wiggle' : ''}`}>
+                DANIEL
+              </span><span className="text-black">.</span>
+            </button>
+          </h1>
+          <p className="text-xl sm:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed">
+            Full-Stack Developer passionate about creating modern, scalable web applications
+          </p>
+          <p className="text-lg sm:text-xl mb-8 max-w-xl mx-auto">
+            <span className="text-blue-600">React</span> • <span className="text-yellow-500">Node.js</span> • <span className="text-green-600">Python</span> • <span className="text-purple-600">Tailwind CSS</span>
+          </p>
+          
+          {/* Call to Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <button 
+              onClick={() => scrollToSection('projects')} 
+              className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-200 transform hover:scale-105 flex items-center gap-2"
+            >
+              <FaExternalLinkAlt />
+              View My Work
+            </button>
+            <button 
+              onClick={() => scrollToSection('contact')} 
+              className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-bold py-4 px-8 rounded-lg transition-all duration-200 transform hover:scale-105"
+            >
+              Get In Touch
+            </button>
+          </div>
+          
+          <span className="text-sm text-gray-300">scroll down 👇</span>
+        </div>
       </section>
 
       {/* About Me Section */}
@@ -104,7 +128,7 @@ function App() {
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="text-4xl font-bold mb-12 text-center tracking-wide">About Me</h1>
           
-          <div className="bg-gray-700 rounded-lg shadow-md p-6">
+          <div className="bg-gray-700 rounded-lg shadow-md p-8">
             <h2 className="text-2xl font-semibold mb-4 text-left">Overview</h2>
             <p className="text-lg leading-relaxed mb-6">
               I am currently pursuing a Bachelor's degree in Informatics at the University of South Africa. I am passionate about technology and am actively seeking opportunities to grow in the tech industry. I am a quick learner, always eager to improve my skills and take on new challenges.
@@ -123,42 +147,42 @@ function App() {
 
       {/* Skills Section */}
       <section id="skills" className={`${commonSectionClasses} flex flex-col items-center`}>
-        <h2 className="text-2xl font-bold mb-6">My Tech Stack</h2>
-        <p className="mb-6 max-w-lg text-center">
+        <h2 className="text-3xl font-bold mb-6">My Tech Stack</h2>
+        <p className="mb-8 max-w-lg text-center text-lg">
           I build modern, scalable web applications using a robust and versatile technology stack.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div className="bg-gray-700 p-4 rounded-lg shadow-md">
-            <h3 className="font-semibold mb-2">Frontend</h3>
-            <div className="flex flex-wrap gap-3">
-              <FaReact title="React" className="text-blue-400 text-2xl" />
-              <SiJavascript title="JavaScript" className="text-yellow-400 text-2xl" />
-              <SiTypescript title="TypeScript" className="text-blue-600 text-2xl" />
-              <SiTailwindcss title="Tailwind CSS" className="text-teal-400 text-2xl" />
-              <FaHtml5 title="HTML5" className="text-orange-500 text-2xl" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 max-w-4xl">
+          <div className="bg-gray-700 p-6 rounded-lg shadow-md">
+            <h3 className="font-semibold mb-4 text-xl">Frontend</h3>
+            <div className="flex flex-wrap gap-4">
+              <FaReact title="React" className="text-blue-400 text-3xl" />
+              <SiJavascript title="JavaScript" className="text-yellow-400 text-3xl" />
+              <SiTypescript title="TypeScript" className="text-blue-600 text-3xl" />
+              <SiTailwindcss title="Tailwind CSS" className="text-teal-400 text-3xl" />
+              <FaHtml5 title="HTML5" className="text-orange-500 text-3xl" />
             </div>
           </div>
-          <div className="bg-gray-700 p-4 rounded-lg shadow-md">
-            <h3 className="font-semibold mb-2">Backend</h3>
-            <div className="flex flex-wrap gap-3">
-              <FaNodeJs title="Node.js" className="text-green-600 text-2xl" />
-              <SiExpress title="Express" className="text-gray-300 text-2xl" />
-              <FaPython title="Python" className="text-yellow-400 text-2xl" />
+          <div className="bg-gray-700 p-6 rounded-lg shadow-md">
+            <h3 className="font-semibold mb-4 text-xl">Backend</h3>
+            <div className="flex flex-wrap gap-4">
+              <FaNodeJs title="Node.js" className="text-green-600 text-3xl" />
+              <SiExpress title="Express" className="text-gray-300 text-3xl" />
+              <FaPython title="Python" className="text-yellow-400 text-3xl" />
             </div>
           </div>
-          <div className="bg-gray-700 p-4 rounded-lg shadow-md">
-            <h3 className="font-semibold mb-2">Database</h3>
-            <div className="flex flex-wrap gap-3">
-              <SiSqlite title="SQLite" className="text-blue-400 text-2xl" />
-              <SiPostgresql title="PostgreSQL" className="text-blue-700 text-2xl" />
+          <div className="bg-gray-700 p-6 rounded-lg shadow-md">
+            <h3 className="font-semibold mb-4 text-xl">Database</h3>
+            <div className="flex flex-wrap gap-4">
+              <SiSqlite title="SQLite" className="text-blue-400 text-3xl" />
+              <SiPostgresql title="PostgreSQL" className="text-blue-700 text-3xl" />
             </div>
           </div>
-          <div className="bg-gray-700 p-4 rounded-lg shadow-md">
-            <h3 className="font-semibold mb-2">Deployment</h3>
-            <div className="flex flex-wrap gap-3">
-              <SiFirebase title="Firebase" className="text-yellow-500 text-2xl" />
-              <FaAws title="AWS" className="text-orange-400 text-2xl" />
-              <SiVercel title="Vercel" className="text-black text-2xl" />
+          <div className="bg-gray-700 p-6 rounded-lg shadow-md">
+            <h3 className="font-semibold mb-4 text-xl">Deployment</h3>
+            <div className="flex flex-wrap gap-4">
+              <SiFirebase title="Firebase" className="text-yellow-500 text-3xl" />
+              <FaAws title="AWS" className="text-orange-400 text-3xl" />
+              <SiVercel title="Vercel" className="text-black text-3xl" />
             </div>
           </div>
         </div>
@@ -169,36 +193,61 @@ function App() {
 
       {/* Projects Section */}
       <section id="projects" className={commonSectionClasses}>
-        <div className="max-w-2xl mx-auto">
-          <h1 className="text-3xl font-bold mb-8 text-center">My Projects</h1>
-          <h2 className="text-xl mb-8 text-left">
-            my GitHub link:
-            <a href="https://github.com/danielvanniekerk123" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline ml-2">View GitHub</a>
-          </h2>
-          <h2 className="text-xl mb-8 mt-8 text-left">
-            my cvv download link:
-            <a href="/assets/cvv/danielvanniekerkcvv.pdf" download className="bg-blue-600 text-white mx-2 px-4 py-2 rounded hover:bg-blue-700">download</a>
-          </h2>
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-4xl font-bold mb-8 text-center">My Projects</h1>
           
-          <div className="flex flex-col gap-8">
+          {/* Quick Links */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            <a href="https://github.com/danielvanniekerk123" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors duration-200">
+              <FaExternalLinkAlt />
+              View GitHub
+            </a>
+            <a href="/assets/cvv/danielvanniekerkcvv.pdf" download className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors duration-200">
+              <FaDownload />
+              Download CV
+            </a>
+          </div>
+          
+          <div className="grid gap-8">
             {projects.map((project, idx) => (
-              <div key={idx} className="bg-gray-700 rounded-lg shadow-md p-6 flex flex-col sm:flex-row gap-6 items-center hover:shadow-xl transition-shadow duration-300">
-                {project.image && (
-                  <CollageViewer images={project.image} />
-                )}
-                <div className="flex-1 flex flex-col">
-                  <h2 className="text-xl font-semibold mb-2">{project.title}</h2>
-                  <p className="mb-2">{project.description}</p>
-                  <div className="mb-2">
-                    <span className="font-bold">Tech:</span> {project.tech.join(', ')}
-                  </div>
-                  <div className="flex gap-4 mt-2">
-                    {project.link && (
-                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">GitHub</a>
-                    )}
-                    {project.weblink && (
-                      <a href={project.weblink} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Live Demo</a>
-                    )}
+              <div key={idx} className="bg-gray-700 rounded-lg shadow-md p-8 hover:shadow-xl transition-shadow duration-300">
+                <div className="flex flex-col lg:flex-row gap-8 items-start">
+                  {project.image && (
+                    <div className="lg:w-1/3">
+                      <CollageViewer images={project.image} />
+                    </div>
+                  )}
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-semibold mb-4">{project.title}</h2>
+                    <p className="text-lg leading-relaxed mb-4">{project.description}</p>
+                    
+                    <div className="mb-4">
+                      <h3 className="font-semibold mb-2">Key Features:</h3>
+                      <ul className="list-disc list-inside space-y-1 text-gray-300">
+                        {project.features.map((feature, featureIdx) => (
+                          <li key={featureIdx}>{feature}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div className="mb-4">
+                      <span className="font-bold">Tech Stack:</span> {project.tech.join(', ')}
+                    </div>
+                    
+                    <div className="flex gap-4">
+                      {project.link && (
+                        <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-400 hover:underline">
+                          <FaExternalLinkAlt />
+                          GitHub
+                        </a>
+                      )}
+                      {project.weblink && (
+                        <a href={project.weblink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-400 hover:underline">
+                          <FaExternalLinkAlt />
+                          Live Demo
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -245,6 +294,7 @@ function App() {
           </div>
         </div>
       </section>
+
       <footer className="bg-gray-900 text-white py-6 text-center">
         <p>&copy; {new Date().getFullYear()} Daniel van Niekerk. All rights reserved.</p>
         <div className="mt-2">
@@ -252,6 +302,9 @@ function App() {
           <a href="https://www.linkedin.com/in/daniel-van-niekerk-b83a83209" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline mx-2">LinkedIn</a>
         </div>
       </footer>
+
+      {/* Chatbot */}
+      <Chatbot />
     </div>
   );
 }

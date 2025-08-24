@@ -127,12 +127,28 @@ const Chatbot: React.FC = () => {
         {isOpen ? (
           <FaTimes size={20} className="text-blue-600" />
         ) : (
-          <img 
-            src="https://tenor.com/bYes2.gif" 
-            alt="Clippy" 
-            className="w-8 h-8 rounded-full"
-            style={{ imageRendering: 'pixelated' }}
-          />
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="w-8 h-8">
+            {/* Paperclip body */}
+            <path 
+              d="M16 4C18.2 4 20 5.8 20 8V20C20 22.2 18.2 24 16 24C13.8 24 12 22.2 12 20V8C12 5.8 13.8 4 16 4Z" 
+              fill="#0078d4"
+              stroke="#0078d4"
+              strokeWidth="1"
+            />
+            {/* Paperclip top curve */}
+            <path 
+              d="M16 4C18.2 4 20 5.8 20 8V12C20 14.2 18.2 16 16 16C13.8 16 12 14.2 12 12V8C12 5.8 13.8 4 16 4Z" 
+              fill="#0078d4"
+            />
+            {/* Big eyes */}
+            <circle cx="14" cy="10" r="2" fill="white" stroke="#0078d4" strokeWidth="1"/>
+            <circle cx="18" cy="10" r="2" fill="white" stroke="#0078d4" strokeWidth="1"/>
+            <circle cx="14" cy="10" r="1" fill="black"/>
+            <circle cx="18" cy="10" r="1" fill="black"/>
+            {/* Eyebrows */}
+            <path d="M12 8 Q14 6 16 8" stroke="black" strokeWidth="1.5" fill="none"/>
+            <path d="M16 8 Q18 6 20 8" stroke="black" strokeWidth="1.5" fill="none"/>
+          </svg>
         )}
       </button>
 
@@ -142,14 +158,30 @@ const Chatbot: React.FC = () => {
           {/* Clippy Header */}
           <div className="bg-blue-500 text-white p-4 rounded-t-lg flex items-center justify-between" style={{ background: 'linear-gradient(135deg, #0078d4 0%, #106ebe 100%)' }}>
             <div className="flex items-center gap-3">
-              {/* Classic Clippy GIF */}
+              {/* Classic Clippy SVG */}
               <div className="relative">
-                <img 
-                  src="https://tenor.com/bYes2.gif" 
-                  alt="Clippy" 
-                  className="w-10 h-10 rounded-full border-2 border-white"
-                  style={{ imageRendering: 'pixelated' }}
-                />
+                <svg width="40" height="40" viewBox="0 0 32 32" fill="none" className="w-10 h-10 rounded-full border-2 border-white">
+                  {/* Paperclip body */}
+                  <path 
+                    d="M16 4C18.2 4 20 5.8 20 8V20C20 22.2 18.2 24 16 24C13.8 24 12 22.2 12 20V8C12 5.8 13.8 4 16 4Z" 
+                    fill="#0078d4"
+                    stroke="#0078d4"
+                    strokeWidth="1"
+                  />
+                  {/* Paperclip top curve */}
+                  <path 
+                    d="M16 4C18.2 4 20 5.8 20 8V12C20 14.2 18.2 16 16 16C13.8 16 12 14.2 12 12V8C12 5.8 13.8 4 16 4Z" 
+                    fill="#0078d4"
+                  />
+                  {/* Big eyes */}
+                  <circle cx="14" cy="10" r="2" fill="white" stroke="#0078d4" strokeWidth="1"/>
+                  <circle cx="18" cy="10" r="2" fill="white" stroke="#0078d4" strokeWidth="1"/>
+                  <circle cx="14" cy="10" r="1" fill="black"/>
+                  <circle cx="18" cy="10" r="1" fill="black"/>
+                  {/* Eyebrows */}
+                  <path d="M12 8 Q14 6 16 8" stroke="black" strokeWidth="1.5" fill="none"/>
+                  <path d="M16 8 Q18 6 20 8" stroke="black" strokeWidth="1.5" fill="none"/>
+                </svg>
               </div>
               <div>
                 <span className="font-bold text-lg">Clippy</span>
@@ -185,12 +217,28 @@ const Chatbot: React.FC = () => {
                     {message.isUser ? (
                       <FaUser size={12} className="text-blue-200" />
                     ) : (
-                      <img 
-                        src="https://tenor.com/bYes2.gif" 
-                        alt="Clippy" 
-                        className="w-4 h-4 rounded-full"
-                        style={{ imageRendering: 'pixelated' }}
-                      />
+                      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="w-4 h-4 rounded-full">
+                        {/* Paperclip body */}
+                        <path 
+                          d="M16 4C18.2 4 20 5.8 20 8V20C20 22.2 18.2 24 16 24C13.8 24 12 22.2 12 20V8C12 5.8 13.8 4 16 4Z" 
+                          fill="#0078d4"
+                          stroke="#0078d4"
+                          strokeWidth="1"
+                        />
+                        {/* Paperclip top curve */}
+                        <path 
+                          d="M16 4C18.2 4 20 5.8 20 8V12C20 14.2 18.2 16 16 16C13.8 16 12 14.2 12 12V8C12 5.8 13.8 4 16 4Z" 
+                          fill="#0078d4"
+                        />
+                        {/* Big eyes */}
+                        <circle cx="14" cy="10" r="2" fill="white" stroke="#0078d4" strokeWidth="1"/>
+                        <circle cx="18" cy="10" r="2" fill="white" stroke="#0078d4" strokeWidth="1"/>
+                        <circle cx="14" cy="10" r="1" fill="black"/>
+                        <circle cx="18" cy="10" r="1" fill="black"/>
+                        {/* Eyebrows */}
+                        <path d="M12 8 Q14 6 16 8" stroke="black" strokeWidth="1.5" fill="none"/>
+                        <path d="M16 8 Q18 6 20 8" stroke="black" strokeWidth="1.5" fill="none"/>
+                      </svg>
                     )}
                     <span className="text-xs opacity-70">
                       {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
@@ -205,12 +253,28 @@ const Chatbot: React.FC = () => {
               <div className="flex justify-start">
                 <div className="bg-white text-gray-800 max-w-xs p-3 rounded-lg border border-gray-200" style={{ boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
                   <div className="flex items-center gap-2 mb-1">
-                    <img 
-                      src="https://tenor.com/bYes2.gif" 
-                      alt="Clippy" 
-                      className="w-4 h-4 rounded-full"
-                      style={{ imageRendering: 'pixelated' }}
-                    />
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="w-4 h-4 rounded-full">
+                      {/* Paperclip body */}
+                      <path 
+                        d="M16 4C18.2 4 20 5.8 20 8V20C20 22.2 18.2 24 16 24C13.8 24 12 22.2 12 20V8C12 5.8 13.8 4 16 4Z" 
+                        fill="#0078d4"
+                        stroke="#0078d4"
+                        strokeWidth="1"
+                      />
+                      {/* Paperclip top curve */}
+                      <path 
+                        d="M16 4C18.2 4 20 5.8 20 8V12C20 14.2 18.2 16 16 16C13.8 16 12 14.2 12 12V8C12 5.8 13.8 4 16 4Z" 
+                        fill="#0078d4"
+                      />
+                      {/* Big eyes */}
+                      <circle cx="14" cy="10" r="2" fill="white" stroke="#0078d4" strokeWidth="1"/>
+                      <circle cx="18" cy="10" r="2" fill="white" stroke="#0078d4" strokeWidth="1"/>
+                      <circle cx="14" cy="10" r="1" fill="black"/>
+                      <circle cx="18" cy="10" r="1" fill="black"/>
+                      {/* Eyebrows */}
+                      <path d="M12 8 Q14 6 16 8" stroke="black" strokeWidth="1.5" fill="none"/>
+                      <path d="M16 8 Q18 6 20 8" stroke="black" strokeWidth="1.5" fill="none"/>
+                    </svg>
                     <span className="text-xs opacity-70">Clippy is typing...</span>
                   </div>
                   <div className="flex space-x-1">

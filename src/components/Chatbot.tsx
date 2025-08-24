@@ -127,7 +127,7 @@ const Chatbot: React.FC = () => {
         {isOpen ? (
           <FaTimes size={20} className="text-blue-600" />
         ) : (
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="w-8 h-8">
+          <svg width="48" height="48" viewBox="0 0 32 32" fill="none" className="w-12 h-12">
             {/* Paperclip body */}
             <path 
               d="M16 4C18.2 4 20 5.8 20 8V20C20 22.2 18.2 24 16 24C13.8 24 12 22.2 12 20V8C12 5.8 13.8 4 16 4Z" 

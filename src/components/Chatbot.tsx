@@ -13,7 +13,7 @@ const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      text: "Hi! I'm Clippy, Dan's assistant! It looks like you're viewing a portfolio. Would you like help navigating around or learning more about Dan's work?",
+      text: "Hi! I'm Clipsy, Dan's assistant! It looks like you're viewing a portfolio. Would you like help navigating around or learning more about Dan's work?",
       isUser: false,
       timestamp: new Date()
     }
@@ -122,9 +122,7 @@ const Chatbot: React.FC = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-6 right-6 z-50 bg-white hover:bg-gray-50 p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 border-2 border-blue-300"
         aria-label="Toggle Clippy"
-        style={{
-          boxShadow: '0 4px 12px rgba(0, 120, 212, 0.3)'
-        }}
+      
       >
         {isOpen ? (
           <FaTimes size={20} className="text-blue-600" />
@@ -132,7 +130,7 @@ const Chatbot: React.FC = () => {
           <img 
             src="https://tenor.com/bYes2.gif" 
             alt="Clippy" 
-            className="w-8 h-8"
+            className="w-8 h-8 rounded-full"
             style={{ imageRendering: 'pixelated' }}
           />
         )}
@@ -246,7 +244,7 @@ const Chatbot: React.FC = () => {
                 className="bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 text-white p-2 rounded-lg transition-colors"
                 style={{ background: 'linear-gradient(135deg, #0078d4 0%, #106ebe 100%)' }}
               >
-                <FaPaperPlane size={16} />
+                <FaPaperPlane size={32} />
               </button>
             </div>
           </div>

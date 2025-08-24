@@ -15,7 +15,7 @@ const CollageViewer: React.FC<CollageViewerProps> = ({ images }) => {
       <img
         src={images[0]}
         alt="collage-thumb"
-        className="w-32 h-32 object-cover rounded-md cursor-pointer hover:scale-105 transition-transform duration-200"
+        className="w-36 h-36 object-cover rounded-md cursor-pointer hover:scale-105 transition-transform duration-200"
         onClick={() => setIsOpen(true)}
       />
 

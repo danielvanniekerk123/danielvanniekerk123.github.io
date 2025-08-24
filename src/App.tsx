@@ -296,7 +296,7 @@ function App() {
       </section>
 
       <footer className="bg-gray-900 text-white py-6 text-center">
-        <p>&copy; {new Date().getFullYear()} Daniel van Niekerk. All rights reserved.</p>
+        <p></p>
         <div className="mt-2">
           <a href="https://github.com/danielvanniekerk123" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline mx-2">GitHub</a>
           <a href="https://www.linkedin.com/in/daniel-van-niekerk-b83a83209" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline mx-2">LinkedIn</a>

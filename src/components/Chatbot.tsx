@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FaPaperPlane, FaTimes, FaComments, FaUser, FaRobot } from 'react-icons/fa';
+import { FaPaperPlane, FaTimes, FaUser } from 'react-icons/fa';
 
 interface Message {
   id: number;
@@ -13,7 +13,7 @@ const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      text: "Hi! I'm Dan's AI assistant. I can help you navigate his portfolio, answer questions about his projects, or connect you with him. What would you like to know?",
+      text: "Hi! I'm Clippy, Dan's assistant! It looks like you're viewing a portfolio. Would you like help navigating around or learning more about Dan's work?",
       isUser: false,
       timestamp: new Date()
     }
@@ -67,7 +67,7 @@ const Chatbot: React.FC = () => {
     
     // CV/Resume
     if (lowerMessage.includes('cv') || lowerMessage.includes('resume') || lowerMessage.includes('download')) {
-      return "You can download Dan's CV from the Projects section! Look for the 'download' button next to 'my cvv download link'.";
+      return "You can download Dan's CV from the Projects section! Look for the 'Download CV' button near the top of the projects page.";
     }
     
     // GitHub
@@ -117,23 +117,49 @@ const Chatbot: React.FC = () => {
 
   return (
     <>
-      {/* Chat Toggle Button */}
+      {/* Clippy Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
-        aria-label="Toggle chatbot"
+        className="fixed bottom-6 right-6 z-50 bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 border-2 border-blue-300"
+        aria-label="Toggle Clippy"
+        style={{
+          background: 'linear-gradient(135deg, #0078d4 0%, #106ebe 100%)',
+          boxShadow: '0 4px 12px rgba(0, 120, 212, 0.3)'
+        }}
       >
-        {isOpen ? <FaTimes size={20} /> : <FaComments size={20} />}
+        {isOpen ? (
+          <FaTimes size={20} />
+        ) : (
+          <div className="relative">
+            {/* Paperclip shape */}
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C13.1 2 14 2.9 14 4V16C14 17.1 13.1 18 12 18C10.9 18 10 17.1 10 16V4C10 2.9 10.9 2 12 2ZM12 4V16H12.01V4H12Z"/>
+            </svg>
+          </div>
+        )}
       </button>
 
-      {/* Chat Window */}
+      {/* Clippy Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-20 right-6 z-50 w-80 h-96 bg-white rounded-lg shadow-2xl border border-gray-200 flex flex-col">
-          {/* Header */}
-          <div className="bg-blue-600 text-white p-4 rounded-t-lg flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <FaRobot size={20} />
-              <span className="font-semibold">Dan's Assistant</span>
+        <div className="fixed bottom-20 right-6 z-50 w-80 h-96 bg-white rounded-lg shadow-2xl border-2 border-blue-300 flex flex-col" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)' }}>
+          {/* Clippy Header */}
+          <div className="bg-blue-500 text-white p-4 rounded-t-lg flex items-center justify-between" style={{ background: 'linear-gradient(135deg, #0078d4 0%, #106ebe 100%)' }}>
+            <div className="flex items-center gap-3">
+              {/* Clippy Icon */}
+              <div className="relative">
+                <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#0078d4">
+                    <path d="M12 2C13.1 2 14 2.9 14 4V16C14 17.1 13.1 18 12 18C10.9 18 10 17.1 10 16V4C10 2.9 10.9 2 12 2ZM12 4V16H12.01V4H12Z"/>
+                  </svg>
+                </div>
+                {/* Clippy eyes */}
+                <div className="absolute -top-1 -left-1 w-2 h-2 bg-black rounded-full"></div>
+                <div className="absolute -top-1 -right-1 w-2 h-2 bg-black rounded-full"></div>
+              </div>
+              <div>
+                <span className="font-bold text-lg">Clippy</span>
+                <div className="text-xs opacity-80">Dan's Assistant</div>
+              </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
@@ -144,7 +170,7 @@ const Chatbot: React.FC = () => {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-3">
+          <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50">
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -153,36 +179,43 @@ const Chatbot: React.FC = () => {
                 <div
                   className={`max-w-xs p-3 rounded-lg ${
                     message.isUser
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-100 text-gray-800'
+                      ? 'bg-blue-500 text-white'
+                      : 'bg-white text-gray-800 border border-gray-200'
                   }`}
+                  style={{
+                    boxShadow: message.isUser ? '0 2px 8px rgba(0, 120, 212, 0.2)' : '0 2px 8px rgba(0, 0, 0, 0.1)'
+                  }}
                 >
                   <div className="flex items-center gap-2 mb-1">
                     {message.isUser ? (
                       <FaUser size={12} className="text-blue-200" />
                     ) : (
-                      <FaRobot size={12} className="text-gray-500" />
+                      <div className="w-3 h-3 bg-yellow-400 rounded-full flex items-center justify-center">
+                        <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
+                      </div>
                     )}
                     <span className="text-xs opacity-70">
                       {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </span>
                   </div>
-                  <p className="text-sm">{message.text}</p>
+                  <p className="text-sm leading-relaxed">{message.text}</p>
                 </div>
               </div>
             ))}
             
             {isTyping && (
               <div className="flex justify-start">
-                <div className="bg-gray-100 text-gray-800 max-w-xs p-3 rounded-lg">
+                <div className="bg-white text-gray-800 max-w-xs p-3 rounded-lg border border-gray-200" style={{ boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
                   <div className="flex items-center gap-2 mb-1">
-                    <FaRobot size={12} className="text-gray-500" />
-                    <span className="text-xs opacity-70">Typing...</span>
+                    <div className="w-3 h-3 bg-yellow-400 rounded-full flex items-center justify-center">
+                      <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
+                    </div>
+                    <span className="text-xs opacity-70">Clippy is typing...</span>
                   </div>
                   <div className="flex space-x-1">
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
+                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                   </div>
                 </div>
               </div>
@@ -192,7 +225,7 @@ const Chatbot: React.FC = () => {
           </div>
 
           {/* Input */}
-          <div className="p-4 border-t border-gray-200">
+          <div className="p-4 border-t border-gray-200 bg-white">
             <div className="flex gap-2">
               <input
                 ref={inputRef}
@@ -200,13 +233,15 @@ const Chatbot: React.FC = () => {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Ask me anything..."
+                placeholder="Ask Clippy anything..."
                 className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                style={{ background: '#f8f9fa' }}
               />
               <button
                 onClick={handleSendMessage}
                 disabled={!inputValue.trim()}
-                className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 text-white p-2 rounded-lg transition-colors"
+                className="bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 text-white p-2 rounded-lg transition-colors"
+                style={{ background: 'linear-gradient(135deg, #0078d4 0%, #106ebe 100%)' }}
               >
                 <FaPaperPlane size={16} />
               </button>

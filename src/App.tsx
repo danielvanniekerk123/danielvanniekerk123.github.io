@@ -21,6 +21,7 @@ import t004 from './assets/img/t004.png';
 import t005 from './assets/img/t005.png';
 import t006 from './assets/img/t006.png';
 import t007 from './assets/img/t007.png';
+import cvPdf from './assets/cvv/JDvanniekerk_cvv.pdf';
 
 const projects = [
   {
@@ -202,7 +203,7 @@ function App() {
               <FaExternalLinkAlt />
               View GitHub
             </a>
-            <a href="/assets/cvv/danielvanniekerkcvv.pdf" download className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors duration-200">
+            <a href={cvPdf} download className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors duration-200">
               <FaDownload />
               Download CV
             </a>
